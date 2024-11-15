@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEvento.Views.Cadastro"
+             Title="Cadastro"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Bisque">
+
+    <VerticalStackLayout>
+        <Label Text="Cadasto de Eventos"
+               FontSize="40"
+               FontFamily="RobotoSlab-Black"
+               TextColor="DarkGreen"
+               HorizontalOptions="Center"/>
+        
+        <Frame Padding="10" Margin="10" VerticalOptions="Center">
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    
+                    
+                    <Entry Placeholder="Nome do evento"
+                           Text="{Binding Evento.Nome}" />
+
+                    <Entry Placeholder="Local do evento" 
+                           Text="{Binding Evento.Local}" />
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Margin="10">
+                    <Label Text="Início: "
+                           FontFamily="RobotoSlab-Regular"
+                           TextColor="DarkGreen"/>
+                    <DatePicker x:Name="dtpck_inicio"  
+                            Date="{Binding Evento.DataInicio}" 
+                            Format="dd/MM/yyyy" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Margin="10">
+                    <Label Text="Término: "
+                           FontFamily="RobotoSlab-Regular"
+                           TextColor="DarkGreen"/>
+                    <DatePicker x:Name="dtpck_termino" 
+                            Date="{Binding Evento.DataTermino}" 
+                            Format="dd/MM/yyyy" />
+                </HorizontalStackLayout>
+
+                <Entry Placeholder="Número de participantes" 
+                       Keyboard="Numeric"
+                       Text="{Binding Evento.NumeroParticipantes}" />
+
+                <Entry Placeholder="Custo por participante" 
+                       Keyboard="Numeric"
+                       Text="{Binding Evento.CustoPorParticipante}" />
+
+                <Button Text="Cadastrar"
+                        Margin="10"
+                        BackgroundColor="DarkGreen"
+                        Clicked="Button_Clicked"
+                        Command="{Binding CadastrarCommand}" />
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
